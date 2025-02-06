@@ -7,13 +7,14 @@ if __name__ == '__main__':
     # Depositing some money
     my_account.deposit(1000)
     my_account.deposit(200)
+    print(f"The balance is {my_account.get_balance()}")
 
     # Withdrawing some money
     my_account.withdraw(700)
     my_account.withdraw(100)
-
-    # Checking our balance
     print(f"The balance is {my_account.get_balance()}")
+
+    print('\n')
     print(my_account)
     print('\n')
 

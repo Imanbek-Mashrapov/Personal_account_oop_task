@@ -66,51 +66,71 @@
 ## Test Cases
 #### Here are some test cases to verify the functionality:
 
-### Test Case 1: Deposit Money
+### Create Personal Account:
+#### Input:
+```python
+my_account = PersonalAccount(account_number=230121021, account_holder='Iman Mashrapov')
+print(my_account)
+```
 
-#### Steps:
+#### Output:
+```ssh
+Account number: 230121021, Account holder: Iman Mashrapov, Balance: 0.0
+```
 
-- Create an account
-- Deposit 1000
-- Deposit 200
-- Check balance
+### Deposit Money
 
-#### Expected Output:
-"The balance is 1200.0"
+#### Input:
+```python
+my_account.deposit(1000)
+my_account.deposit(200)
+print(f"The balance is {my_account.get_balance()}")
+```
 
-### Test Case 2: Withdraw Money
+#### Output:
+```ssh
+The balance is 1200.0
+```
 
-#### Steps:
+### Withdraw Money
 
-- Withdraw 700
-- Withdraw 100
-- Check balance
+#### Input:
+```python
+my_account.withdraw(700)
+my_account.withdraw(100)
+print(f"The balance is {my_account.get_balance()}")
+```
+#### Output:
+```ssh
+The balance is 400.0
+```
 
-#### Expected Output:
-"The balance is 400.0"
+### Withdraw More Than Balance
 
-### Test Case 3: Withdraw More Than Balance
+#### Input:
+```python
+my_account.withdraw(10000)
+```
 
-#### Steps:
+#### Output:
+```ssh
+Amount exceeds the current balance, all balance (400.0) is withdrawn
+```
 
-- Withdraw 500 (exceeds balance)
+### Transaction History
 
-#### Expected Output:
+#### Input:
+```python
+my_account.print_transaction_history()
+```
 
-"Amount exceeds the current balance, all balance (400.0) is withdrawn
-The balance is 0.0"
+#### Output:
+```ssh
+Amount: 1000, Time: 2025-02-20 13:39:22.514225, Transaction_type: DEPOSIT
+Amount: 200, Time: 2025-02-20 13:39:22.514225, Transaction_type: DEPOSIT
+Amount: 700, Time: 2025-02-20 13:39:22.514225, Transaction_type: WITHDRAW
+Amount: 100, Time: 2025-02-20 13:39:22.514225, Transaction_type: WITHDRAW
+Amount: 400.0, Time: 2025-02-20 13:39:22.514225, Transaction_type: WITHDRAW
+```
 
-### Test Case 4: Transaction History
-
-#### Expected Output:
-
-"Amount: 1000, Time: ..., Transaction_type: DEPOSIT
-
-Amount: 200, Time: ..., Transaction_type: DEPOSIT
-
-Amount: 700, Time: ..., Transaction_type: WITHDRAW
-
-Amount: 100, Time: ..., Transaction_type: WITHDRAW
-
-Amount: 400, Time: ..., Transaction_type: WITHDRAW"
 
